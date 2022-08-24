@@ -6,7 +6,7 @@
 Make sure you have Node 16+ installed.
 
 1. Clone repository
-2. Run `make install` and `make link`
+2. Run `make install`
 3. Run `gendiff <filePath1> <filePath2>`
 
 ### Compare .json files
