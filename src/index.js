@@ -41,7 +41,7 @@ const genDiff = (file1, file2) => {
 
   console.log(`{\n${resultStr}}`);
 
-  return `{\n${resultStr}}`;
+  return `{\n${resultStr}}\n`;
 };
 
 export default genDiff;
