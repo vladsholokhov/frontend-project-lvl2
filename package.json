@@ -20,8 +20,13 @@
   },
   "homepage": "https://github.com/vladsholokhov/frontend-project-lvl2#readme",
   "type": "module",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "commander": "^9.4.0"
+  },
   "devDependencies": {
-    "commander": "^9.4.0",
-    "lodash": "^4.17.21"
+    "eslint": "^8.22.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
   }
 }
