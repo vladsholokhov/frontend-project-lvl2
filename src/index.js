@@ -40,6 +40,8 @@ const genDiff = (file1, file2) => {
   const resultStr = resultArr.toString().replaceAll(',', '');
 
   console.log(`{\n${resultStr}}`);
+
+  return `{\n${resultStr}}`;
 };
 
 export default genDiff;
