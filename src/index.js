@@ -37,7 +37,7 @@ const genDiff = (file1, file2) => {
     return ` - ${key}: ${objOneValue}\n + ${key}: ${objTwoValue}\n`;
   });
 
-  const resultStr = resultArr.toString().replaceAll(',', '');
+   const resultStr = resultArr.toString().replaceAll(',', '');
 
   console.log(`{\n${resultStr}}`);
 };
