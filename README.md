@@ -2,6 +2,10 @@
 [![Actions Status](https://github.com/vladsholokhov/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/vladsholokhov/frontend-project-lvl2/actions)
 
 [![lint](https://github.com/vladsholokhov/frontend-project-lvl2/actions/workflows/lint.yml/badge.svg)](https://github.com/vladsholokhov/frontend-project-lvl2/actions/workflows/lint.yml)
+
+[![Maintainability](https://api.codeclimate.com/v1/badges/7705029de3611d7e16eb/maintainability)](https://codeclimate.com/github/vladsholokhov/frontend-project-lvl2/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7705029de3611d7e16eb/test_coverage)](https://codeclimate.com/github/vladsholokhov/frontend-project-lvl2/test_coverage)
 ### Installation
 Make sure you have Node 16+ installed.
 
