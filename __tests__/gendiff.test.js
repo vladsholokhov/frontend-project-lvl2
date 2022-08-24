@@ -6,6 +6,6 @@ import genDiff from '../src/index.js';
 const getFilePath = (file) => path.resolve(process.cwd(), '__fixtures__', file);
 const readFile = (filePath) => fs.readFileSync(filePath, 'utf-8');
 
-test('check plain json', () => {
+test('check json files', () => {
   expect(genDiff('file1.json', 'file2.json')).toEqual(readFile(getFilePath('expected.txt')));
 });
