@@ -21,6 +21,7 @@
   "homepage": "https://github.com/vladsholokhov/frontend-project-lvl2#readme",
   "type": "module",
   "devDependencies": {
-    "commander": "^9.4.0"
+    "commander": "^9.4.0",
+    "lodash": "^4.17.21"
   }
 }
