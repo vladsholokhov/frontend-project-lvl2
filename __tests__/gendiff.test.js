@@ -9,3 +9,7 @@ const readFile = (filePath) => fs.readFileSync(filePath, 'utf-8');
 test('check json files', () => {
   expect(genDiff('file1.json', 'file2.json')).toEqual(readFile(getFilePath('expected.txt')));
 });
+
+test('check yaml files', () => {
+  expect(genDiff('file1.yaml', 'file2.yaml')).toEqual(readFile(getFilePath('expected.txt')));
+});
