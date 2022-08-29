@@ -15,3 +15,6 @@ Make sure you have Node 16+ installed.
 
 ### Compare .json files
 [![asciicast](https://asciinema.org/a/516814.svg)](https://asciinema.org/a/516814)
+
+### Compare .yaml files
+[![asciicast](https://asciinema.org/a/9FdswhrGyZCflFBfHIBeZ53Cw.svg)](https://asciinema.org/a/9FdswhrGyZCflFBfHIBeZ53Cw)
