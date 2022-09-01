@@ -17,7 +17,7 @@ const parser = (fileContent, fileName) => {
       break;
 
     default:
-      console.log(`Unknown file extension: ${fileExtension}`);
+      throw new Error(`Unknown file extension: ${fileExtension}`);
   }
 
   return result;
