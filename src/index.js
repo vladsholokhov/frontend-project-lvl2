@@ -14,9 +14,9 @@ const genDiff = (file1, file2, format = 'stylish') => {
   const fileTwoContent = parser(readFile(fileTwoPah), fileTwoPah);
 
   const diff = getDiff(fileOneContent, fileTwoContent);
-  const formatter = getFormatter(format);
-  console.log(formatter(diff));
-  return formatter(diff);
+  const result = getFormatter(format)(diff);
+  console.log(result);
+  return result;
 };
 
 export default genDiff;

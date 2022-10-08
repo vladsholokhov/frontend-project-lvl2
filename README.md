@@ -21,3 +21,6 @@ Make sure you have Node 16+ installed.
 
 ### Compare .json files plain format
 [![asciicast](https://asciinema.org/a/526652.svg)](https://asciinema.org/a/526652)
+
+### Compare .json files json format
+[![asciicast](https://asciinema.org/a/526655.svg)](https://asciinema.org/a/526655)
