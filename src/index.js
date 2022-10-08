@@ -16,6 +16,7 @@ const genDiff = (file1, file2, format = 'stylish') => {
   const diff = getDiff(fileOneContent, fileTwoContent);
   const formatter = getFormatter(format);
   console.log(formatter(diff));
+  return formatter(diff);
 };
 
 export default genDiff;

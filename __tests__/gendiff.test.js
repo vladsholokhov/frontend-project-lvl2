@@ -15,9 +15,9 @@ test('check yaml files - stylish', () => {
 });
 
 test('check json files - plain', () => {
-  expect(genDiff('file1.json', 'file2.json')).toEqual(readFile(getFilePath('expectedPlain.txt')));
+  expect(genDiff('file1.json', 'file2.json', 'plain')).toEqual(readFile(getFilePath('expectedPlain.txt')));
 });
 
 test('check yaml files - plain', () => {
-  expect(genDiff('file1.yaml', 'file2.yaml')).toEqual(readFile(getFilePath('expectedPlain.txt')));
+  expect(genDiff('file1.yaml', 'file2.yaml', 'plain')).toEqual(readFile(getFilePath('expectedPlain.txt')));
 });
