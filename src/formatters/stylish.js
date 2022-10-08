@@ -47,7 +47,7 @@ const stylish = (tree) => {
             return `${indent}- ${name}: ${formatValue(oldValue, depth + 1)}\n${indent}+ ${name}: ${formatValue(newValue, depth + 1)}`;
 
           default:
-            throw new Error(`Unknown difference: '${status}'!`);
+            throw new Error(`Unknown status: '${status}'!`);
         }
       });
 

@@ -36,7 +36,7 @@ const plain = (tree) => {
             return `Property '${fullPath}' was updated. From ${stringify(oldValue)} to ${stringify(newValue)}`;
 
           default:
-            throw new Error(`Unknown difference: '${status}'!`);
+            throw new Error(`Unknown status: '${status}'!`);
         }
       })
       .filter((line) => line);
