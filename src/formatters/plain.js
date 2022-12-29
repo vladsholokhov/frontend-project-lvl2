@@ -8,7 +8,7 @@ const stringify = (value) => {
     return `'${value}'`;
   }
 
-  return value.toString();
+  return value;
 };
 
 const plain = (tree) => {
