@@ -10,7 +10,7 @@ const expectedPlain = readFile('expectedPlain');
 const expectedStylish = readFile('expectedStylish');
 const expectedJson = readFile('expectedJson');
 
-test.each(['yml', 'json'])('test genDiff', (fileExtension) => {
+test.each(['yaml', 'json'])('test genDiff', (fileExtension) => {
   const path1 = getFixturePath(`file1.${fileExtension}`);
   const path2 = getFixturePath(`file2.${fileExtension}`);
 
