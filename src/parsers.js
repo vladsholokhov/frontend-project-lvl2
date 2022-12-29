@@ -1,26 +1,17 @@
 import yaml from 'js-yaml';
-import path from 'path';
 
-const parser = (fileContent, fileName) => {
-  const fileExtension = path.extname(fileName);
-
-  let result;
-
+const parser = (fileContent, fileExtension) => {
   switch (fileExtension) {
     case '.json':
-      result = JSON.parse(fileContent);
-      break;
+      return JSON.parse(fileContent);
 
     case '.yaml':
     case '.yml':
-      result = yaml.load(fileContent);
-      break;
+      return yaml.load(fileContent);
 
     default:
       throw new Error(`Unknown file extension: ${fileExtension}`);
   }
-
-  return result;
 };
 
 export default parser;
