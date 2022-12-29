@@ -8,20 +8,18 @@ const stringify = (value) => {
     return `'${value}'`;
   }
 
-  return value;
+  return value.toString();
 };
 
 const plain = (tree) => {
   const iter = (node, path) => {
     const lines = node
-      .map(({
-        status, name, value, children, oldValue, newValue,
-      }) => {
-        const fullPath = [...path, name].join('.');
+      .map((element) => {
+        const fullPath = [...path, element.name].join('.');
 
-        switch (status) {
+        switch (element.status) {
           case 'nested':
-            return iter(children, [...path, name]);
+            return iter(element.children, [...path, element.name]);
 
           case 'unchanged':
             return null;
@@ -30,13 +28,13 @@ const plain = (tree) => {
             return `Property '${fullPath}' was removed`;
 
           case 'added':
-            return `Property '${fullPath}' was added with value: ${stringify(value)}`;
+            return `Property '${fullPath}' was added with value: ${stringify(element.value)}`;
 
           case 'modified':
-            return `Property '${fullPath}' was updated. From ${stringify(oldValue)} to ${stringify(newValue)}`;
+            return `Property '${fullPath}' was updated. From ${stringify(element.previousValue)} to ${stringify(element.currentValue)}`;
 
           default:
-            throw new Error(`Unknown status: '${status}'!`);
+            throw new Error(`Unknown status: '${element.status}'!`);
         }
       })
       .filter((line) => line);

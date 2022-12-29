@@ -27,27 +27,25 @@ const stylish = (tree) => {
     const bracketIndent = replacer.repeat(spaces * (depth - 1));
 
     const lines = node
-      .map(({
-        status, name, children, value, oldValue, newValue,
-      }) => {
-        switch (status) {
+      .map((element) => {
+        switch (element.status) {
           case 'nested':
-            return `${indent}  ${name}: ${iter(children, depth + 1)}`;
+            return `${indent}  ${element.name}: ${iter(element.children, depth + 1)}`;
 
           case 'unchanged':
-            return `${indent}  ${name}: ${formatValue(value, depth + 1)}`;
+            return `${indent}  ${element.name}: ${formatValue(element.value, depth + 1)}`;
 
           case 'removed':
-            return `${indent}- ${name}: ${formatValue(value, depth + 1)}`;
+            return `${indent}- ${element.name}: ${formatValue(element.value, depth + 1)}`;
 
           case 'added':
-            return `${indent}+ ${name}: ${formatValue(value, depth + 1)}`;
+            return `${indent}+ ${element.name}: ${formatValue(element.value, depth + 1)}`;
 
           case 'modified':
-            return `${indent}- ${name}: ${formatValue(oldValue, depth + 1)}\n${indent}+ ${name}: ${formatValue(newValue, depth + 1)}`;
+            return `${indent}- ${element.name}: ${formatValue(element.previousValue, depth + 1)}\n${indent}+ ${element.name}: ${formatValue(element.currentValue, depth + 1)}`;
 
           default:
-            throw new Error(`Unknown status: '${status}'!`);
+            throw new Error(`Unknown status: '${element.status}'!`);
         }
       });
 

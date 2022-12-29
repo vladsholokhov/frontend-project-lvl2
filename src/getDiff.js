@@ -25,7 +25,7 @@ const getDiff = (fileOneContent, fileTwoContent) => {
     }
     if (objOneValue !== objTwoValue) {
       return {
-        name: key, status: 'modified', oldValue: objOneValue, newValue: objTwoValue,
+        name: key, status: 'modified', previousValue: objOneValue, currentValue: objTwoValue,
       };
     }
 
