@@ -14,6 +14,7 @@ const genDiff = (file1, file2, format = 'stylish') => {
   const fileTwoContent = parser(readFile(fileTwoPath), path.extname(fileTwoPath));
 
   const diff = getDiff(fileOneContent, fileTwoContent);
+  console.log(getFormatter(format)(diff));
   return getFormatter(format)(diff);
 };
 
