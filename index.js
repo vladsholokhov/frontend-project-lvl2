@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import parser from './src/parsers.js';
-import getDiff from './src/getDiff.js';
+import getDiff from './src/getdiff.js';
 import getFormatter from './src/formatters/index.js';
 
 const getFilePath = (file) => path.resolve(process.cwd(), '__fixtures__', file);
