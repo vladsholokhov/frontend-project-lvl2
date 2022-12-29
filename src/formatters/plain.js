@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const stringify = (value) => {
+const getValueToPrint = (value) => {
   if (_.isPlainObject(value)) {
     return '[complex value]';
   }
@@ -28,10 +28,10 @@ const plain = (tree) => {
             return `Property '${fullPath}' was removed`;
 
           case 'added':
-            return `Property '${fullPath}' was added with value: ${stringify(element.value)}`;
+            return `Property '${fullPath}' was added with value: ${getValueToPrint(element.value)}`;
 
           case 'modified':
-            return `Property '${fullPath}' was updated. From ${stringify(element.previousValue)} to ${stringify(element.currentValue)}`;
+            return `Property '${fullPath}' was updated. From ${getValueToPrint(element.previousValue)} to ${getValueToPrint(element.currentValue)}`;
 
           default:
             throw new Error(`Unknown status: '${element.status}'!`);
