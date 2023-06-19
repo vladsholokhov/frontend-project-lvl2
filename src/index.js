@@ -2,7 +2,7 @@ import path from 'path';
 import fs from 'fs';
 import parser from './parsers.js';
 import buildDiffTree from './buildDiffTree.js';
-import getFormatter from './formatters/index.js';
+import doFormatting from './formatters/index.js';
 
 const getFilePath = (file) => path.resolve(process.cwd(), file);
 const readFile = (filePath) => fs.readFileSync(filePath, { encoding: 'utf8' });
@@ -14,7 +14,7 @@ const index = (file1, file2, format = 'stylish') => {
   const fileTwoContent = parser(readFile(fileTwoPath), path.extname(fileTwoPath).substring(1));
 
   const diff = buildDiffTree(fileOneContent, fileTwoContent);
-  return getFormatter(format)(diff);
+  return doFormatting(format, diff);
 };
 
 export default index;

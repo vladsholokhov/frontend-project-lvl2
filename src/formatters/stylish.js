@@ -3,14 +3,13 @@ import _ from 'lodash';
 const stylish = (tree) => {
   const replacer = ' ';
   const spaces = 4;
-
+  const getBracketIndent = (depth) => replacer.repeat(spaces * (depth - 1));
   const formatValue = (value, depth) => {
     if (!_.isObject(value)) {
       return value;
     }
 
     const nestedIndent = replacer.repeat(spaces * depth);
-    const bracketIndent = replacer.repeat(spaces * (depth - 1));
 
     const entries = Object.entries(value);
     const lines = entries.map(([key, val]) => `${nestedIndent}${key}: ${formatValue(val, depth + 1)}`);
@@ -18,13 +17,12 @@ const stylish = (tree) => {
     return [
       '{',
       ...lines,
-      `${bracketIndent}}`,
+      `${getBracketIndent(depth)}}`,
     ].join('\n');
   };
 
   const iter = (node, depth) => {
     const indent = replacer.repeat((spaces * depth) - 2);
-    const bracketIndent = replacer.repeat(spaces * (depth - 1));
 
     const lines = node
       .map((element) => {
@@ -52,7 +50,7 @@ const stylish = (tree) => {
     return [
       '{',
       ...lines,
-      `${bracketIndent}}`,
+      `${getBracketIndent(depth)}}`,
     ].join('\n');
   };
 
