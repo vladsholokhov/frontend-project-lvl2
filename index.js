@@ -1,3 +1,3 @@
-import index from './src/index.js';
+import genDiff from './src/genDiff.js';
 
-export default index;
+export default genDiff;
