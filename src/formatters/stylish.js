@@ -40,7 +40,7 @@ const stylish = (tree) => {
             return `${indent}+ ${element.name}: ${formatValue(element.value, depth + 1)}`;
 
           case 'modified':
-            return `${indent}- ${element.name}: ${formatValue(element.previousValue, depth + 1)}\n${indent}+ ${element.name}: ${formatValue(element.currentValue, depth + 1)}`;
+            return `${indent}- ${element.name}: ${formatValue(element.value1, depth + 1)}\n${indent}+ ${element.name}: ${formatValue(element.value2, depth + 1)}`;
 
           default:
             throw new Error(`Unknown type: '${element.type}'!`);
