@@ -14,13 +14,13 @@ const buildDiffTree = (data1, data2) => {
       return { name: key, type: 'added', value: obj2[key] };
     }
 
-    if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
+    if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
       return { name: key, type: 'nested', children: buildDiffTree(obj1[key], obj2[key]) };
     }
 
-    if (obj1[key] !== obj2[key]) {
+    if (!_.isEqual(obj1[key], obj2[key])) {
       return {
-        name: key, type: 'modified', previousValue: obj1[key], currentValue: obj2[key],
+        name: key, type: 'modified', value1: obj1[key], value2: obj2[key],
       };
     }
 
