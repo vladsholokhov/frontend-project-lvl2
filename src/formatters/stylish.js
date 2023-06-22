@@ -43,7 +43,7 @@ const stylish = (tree) => {
             return `${indent}- ${element.name}: ${formatValue(element.previousValue, depth + 1)}\n${indent}+ ${element.name}: ${formatValue(element.currentValue, depth + 1)}`;
 
           default:
-            throw new Error(`Unknown status: '${element.type}'!`);
+            throw new Error(`Unknown type: '${element.type}'!`);
         }
       });
 
