@@ -6,9 +6,9 @@ import index from '../index.js';
 const getFixturePath = (filename) => path.resolve('__fixtures__', filename);
 const readFile = (filename) => readFileSync(getFixturePath(filename), 'utf-8');
 
-const expectedPlain = readFile('expectedPlain');
-const expectedStylish = readFile('expectedStylish');
-const expectedJson = readFile('expectedJson');
+const expectedPlain = readFile('expectedPlain.txt');
+const expectedStylish = readFile('expectedStylish.txt');
+const expectedJson = readFile('expectedJson.txt');
 
 test.each(['yaml', 'json'])('tests', (fileExtension) => {
   const path1 = getFixturePath(`file1.${fileExtension}`);
