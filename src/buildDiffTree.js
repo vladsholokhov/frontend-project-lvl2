@@ -6,30 +6,24 @@ const buildDiffTree = (data1, data2) => {
   const uniqSortedKeys = _.sortBy(_.uniq([...keys1, ...keys2]));
 
   const buildTree = (obj1, obj2, key) => {
-    const objOneHasKey = _.has(obj1, key);
-    const objTwoHasKey = _.has(obj2, key);
-
-    const objOneValue = obj1[key];
-    const objTwoValue = obj2[key];
-
-    if (!objTwoHasKey) {
-      return { name: key, status: 'removed', value: objOneValue };
+    if (!_.has(obj1, key)) {
+      return { name: key, type: 'removed', value: obj1[key] };
     }
 
-    if (!objOneHasKey) {
-      return { name: key, status: 'added', value: objTwoValue };
+    if (!_.has(obj2, key)) {
+      return { name: key, type: 'added', value: obj2[key] };
     }
 
-    if (_.isObject(objOneValue) && _.isObject(objTwoValue)) {
-      return { name: key, status: 'nested', children: buildDiffTree(objOneValue, objTwoValue) };
+    if (_.isObject(obj1[key]) && _.isObject(obj2[key])) {
+      return { name: key, type: 'nested', children: buildDiffTree(obj1[key], obj2[key]) };
     }
-    if (objOneValue !== objTwoValue) {
+    if (obj1[key] !== obj2[key]) {
       return {
-        name: key, status: 'modified', previousValue: objOneValue, currentValue: objTwoValue,
+        name: key, type: 'modified', previousValue: obj1[key], currentValue: obj2[key],
       };
     }
 
-    return { name: key, status: 'unchanged', value: objOneValue };
+    return { name: key, type: 'unchanged', value: obj1[key] };
   };
 
   return uniqSortedKeys.map((key) => buildTree(data1, data2, key));

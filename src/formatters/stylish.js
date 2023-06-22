@@ -26,7 +26,7 @@ const stylish = (tree) => {
 
     const lines = node
       .map((element) => {
-        switch (element.status) {
+        switch (element.type) {
           case 'nested':
             return `${indent}  ${element.name}: ${iter(element.children, depth + 1)}`;
 
@@ -43,7 +43,7 @@ const stylish = (tree) => {
             return `${indent}- ${element.name}: ${formatValue(element.previousValue, depth + 1)}\n${indent}+ ${element.name}: ${formatValue(element.currentValue, depth + 1)}`;
 
           default:
-            throw new Error(`Unknown status: '${element.status}'!`);
+            throw new Error(`Unknown status: '${element.type}'!`);
         }
       });
 

@@ -17,7 +17,7 @@ const plain = (tree) => {
       .map((element) => {
         const fullPath = [...path, element.name].join('.');
 
-        switch (element.status) {
+        switch (element.type) {
           case 'nested':
             return iter(element.children, [...path, element.name]);
 
@@ -34,7 +34,7 @@ const plain = (tree) => {
             return `Property '${fullPath}' was updated. From ${getValueToPrint(element.previousValue)} to ${getValueToPrint(element.currentValue)}`;
 
           default:
-            throw new Error(`Unknown status: '${element.status}'!`);
+            throw new Error(`Unknown status: '${element.type}'!`);
         }
       })
       .filter((line) => line);
