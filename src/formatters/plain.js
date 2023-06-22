@@ -31,7 +31,7 @@ const plain = (tree) => {
             return `Property '${fullPath}' was added with value: ${getValueToPrint(element.value)}`;
 
           case 'modified':
-            return `Property '${fullPath}' was updated. From ${getValueToPrint(element.previousValue)} to ${getValueToPrint(element.currentValue)}`;
+            return `Property '${fullPath}' was updated. From ${getValueToPrint(element.value1)} to ${getValueToPrint(element.value2)}`;
 
           default:
             throw new Error(`Unknown status: '${element.type}'!`);
