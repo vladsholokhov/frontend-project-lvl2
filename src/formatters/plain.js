@@ -9,10 +9,6 @@ const stringify = (value) => {
     return `'${value}'`;
   }
 
-  // if (value === null) {
-  //   return 'null';
-  // }
-
   return String(value);
 };
 
