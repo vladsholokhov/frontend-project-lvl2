@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const stringify = (value) => {
-  if (_.isPlainObject(value)) {
+  if (_.isObject(value)) {
     return '[complex value]';
   }
 
@@ -9,11 +9,11 @@ const stringify = (value) => {
     return `'${value}'`;
   }
 
-  if (value === null) {
-    return 'null';
-  }
+  // if (value === null) {
+  //   return 'null';
+  // }
 
-  return _.toString(value);
+  return String(value);
 };
 
 const plain = (tree) => {
